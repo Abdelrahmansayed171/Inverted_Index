@@ -7,13 +7,18 @@ import java.io.IOException;
 
 public class FileWriter {
     public static void main(String[] args) throws IOException, FileNotFoundException {
-        FileOutputStream f = new FileOutputStream("file1.txt",true);
+        FileOutputStream f = new FileOutputStream("file10.txt",true);
         DataOutputStream d= new DataOutputStream(f);
-        d.writeUTF("name");
-        d.writeUTF("seif");
-        d.writeUTF("mohamed");
-        d.writeChar('S');
-        d.writeUTF("SeiffMohemedd");
+        d.writeUTF("jg");
+        d.writeUTF("main");
+        d.writeUTF("top");
+//        d.writeChar('i');
+        d.writeUTF("main");
+//        d.writeUTF("committed");
+
+//        d.writeUTF("IS");
+
+
         d.flush();
         d.close();
     }
