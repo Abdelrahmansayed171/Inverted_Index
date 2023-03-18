@@ -1,0 +1,9 @@
+# Default ignored files
+/shelf/
+.idea/Inverted_Index.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+out/
+.idea
