@@ -15,6 +15,7 @@ public class FileReader  {
             System.out.println(d.readUTF());
 //            System.out.println(d.readChar());
             System.out.println(d.readUTF());
+//            System.out.println(f.length());
 
         }catch (IOException e)
         {
