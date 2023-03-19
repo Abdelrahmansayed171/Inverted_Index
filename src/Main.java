@@ -1,16 +1,14 @@
 package src;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
-    public  static  String fileName1 = "file1.txt";
+    public static String fileName1 = "file1.txt";
     public static  String fileName2="file2.txt";
-    public  static String fileName3="file3.txt";
+    public static String fileName3="file3.txt";
     public static  String fileName4="file4.txt";
-    public  static String fileName5="file5.txt";
+    public static String fileName5="file5.txt";
     public static  String fileName6="file6.txt";
     public static  String fileName7="file7.txt";
     public static  String fileName8="file8.txt";
@@ -23,7 +21,7 @@ public class Main {
         DataInputStream data = new DataInputStream(file);
         while(data.available()>0) {
             String word = data.readUTF();
-//            System.out.println(word);
+            word = word.toLowerCase();
             if(!index.containsKey(word)){
                 Posting tempPosting = new Posting(fileID);
                 DictEntry tempEntry = new DictEntry();
@@ -45,23 +43,21 @@ public class Main {
                 }
                 index.get(word).term_freq++;
             }
-//            System.out.println("El kelma: "+ word + " da el term freq "+index.get(word).term_freq + " da el doc freq "+index.get(word).doc_freq);
         }
     }
 
-   public static void print(String FileName, int FileID){
-       for (String name: index.keySet()) {
-           Posting posting = index.get(name).pList;
-//           String key = name;
+   public static void print(){
+       List<String> mapKeys = new ArrayList<>(index.keySet());
+       Collections.sort(mapKeys);
+       for (String name: mapKeys) {
            int value = index.get(name).doc_freq;
            System.out.print(name + " " + value);
            Posting pos = index.get(name).pList;
-           String tmpString = " ";
-           tmpString += String.valueOf(pos.docId)+" ";
+           String tmpString = " -- > ";
+           tmpString += String.valueOf(pos.docId);
            while(pos.next != null){
                pos = pos.next;
-//               System.out.println(pos);
-               tmpString+=" " + pos.docId+" ";
+               tmpString+= ", " + pos.docId;
            }
            System.out.println(tmpString);
 
@@ -80,17 +76,7 @@ public class Main {
         operate(fileName8,8);
         operate(fileName9,9);
         operate(fileName10,10);
-        print(fileName1,1);
-//        print(fileName2,2);
-//        print(fileName3,3);
-//        print(fileName4,4);
-//        print(fileName5,5);
-//        print(fileName6,6);
-//        print(fileName7,7);
-//        print(fileName8,8);
-//        print(fileName9,9);
-//        print(fileName10,10);
-
+        print();
 
     }
 }
