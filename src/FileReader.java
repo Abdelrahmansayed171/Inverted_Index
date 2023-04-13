@@ -10,6 +10,7 @@ public class FileReader  {
         try{
             FileInputStream f = new FileInputStream("file10.txt");
             DataInputStream d = new DataInputStream(f);
+
             System.out.println(d.readUTF());
             System.out.println(d.readUTF());
             System.out.println(d.readUTF());

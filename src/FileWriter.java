@@ -1,14 +1,12 @@
 package src;
 
-import java.io.DataOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class FileWriter {
     public static void main(String[] args) throws IOException, FileNotFoundException {
         FileOutputStream f = new FileOutputStream("file10.txt",true);
         DataOutputStream d= new DataOutputStream(f);
+
         d.writeUTF("jg");
         d.writeUTF("main");
         d.writeUTF("top");
@@ -17,6 +15,7 @@ public class FileWriter {
 //        d.writeUTF("committed");
 
 //        d.writeUTF("IS");
+
 
 
         d.flush();
